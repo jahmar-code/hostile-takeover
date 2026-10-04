@@ -1,18 +1,21 @@
-# Port plan: phases, exit criteria, open decisions
+# Port plan: phases, exit criteria, decisions
 
-Status: **Phase 0 deliverables done. Phase 0 exits when the owner answers the
-decisions below and the legal questions reach counsel.**
+Status: **Phase 0 deliverables done and decisions D1–D7 accepted (2026-10-04).
+The one remaining Phase 0 exit item is sending the questions in
+`01-legal-provenance-register.md` §10 to counsel (owner action). Phase 1 can
+start in parallel because it uses no original assets.**
 
 The metaprompt that defines this effort was truncated after rule 7, so its phase
 list never arrived. The phases below are reconstructed from the rules it does
 contain: Phase 0 is the legal gate (rule 6), and Phase 2 records golden data from
 the C++ oracle (rule 5). Edit this file if your original phase list differs.
 
-## Decisions needed from the project owner
+## Decisions
 
-These block or shape Phase 1. Each has a recommendation; none has been acted on.
+The owner accepted every recommendation below on 2026-10-04. The
+"Recommendation" column is now the decision of record.
 
-| # | Decision | Recommendation | Why |
+| # | Question | Decision (accepted) | Why |
 |---|---|---|---|
 | D1 | Sim tick rate. The metaprompt says 20 Hz; the original sim steps every **80 ms (12.5 Hz)** (`game/ht.h:1053`). Unit speeds, cooldowns, and build times are all counted in updates. | **Keep 12.5 Hz** through parity. Revisit only as a deliberate post-parity rebalance. | At 20 Hz no per-update value can match the oracle, so rule 5 (prove parity) can't be met. Rendering interpolates to 60 fps either way, so smoothness does not depend on the tick rate. |
 | D2 | Integer width of `fix32` (declared `long`: 32-bit on the original ARM targets, 64-bit on x64 Linux and arm64). | Model it as **32-bit** in C# unless Phase 2 traces show the two widths differ. | Record goldens from both `-m32` and `-m64` oracle builds and diff them. If they agree, the question is moot. |
@@ -36,7 +39,7 @@ Deliverables:
 - `03-oracle-build.md` and `tools/oracle/`: the oracle builds and boots on Linux.
 - This plan.
 
-Exit: the owner answers D1–D7, and the legal questions in the register go to counsel.
+Exit: D1–D7 answered (done, 2026-10-04), and the legal questions in the register go to counsel (pending, owner action).
 
 ### Phase 1: Foundations
 

@@ -11,12 +11,13 @@ lives under this directory.
 
 | Phase | State |
 |---|---|
-| 0: Discovery and legal gate | Deliverables done. Exit waits on owner decisions D1–D7 and a legal review. |
+| 0: Discovery and legal gate | Deliverables done. Decisions D1–D7 accepted. Legal questions still need to go to counsel. |
 | 1: Foundations | Not started |
 | 2+ | Not started |
 
-Start with [`docs/00-phase-plan.md`](docs/00-phase-plan.md). It lists the
-decisions that block Phase 1.
+Start with [`docs/00-phase-plan.md`](docs/00-phase-plan.md). It records the
+accepted decisions (12.5 Hz sim, 32-px data set, replacement assets, …) and each
+phase's exit criteria.
 
 ## Documents
 
